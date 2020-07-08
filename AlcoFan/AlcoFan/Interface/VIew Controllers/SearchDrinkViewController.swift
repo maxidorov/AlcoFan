@@ -10,11 +10,13 @@ import UIKit
 
 class SearchDrinkViewController: UIViewController {
     
-    var cocktailDataProvider: CocktailDataProvider!
     var cocktailApiManager: CocktailApiManager!
+    var cocktailDataProvider: CocktailDataProvider!
     
     let tableView = UITableView()
     let cellID = "cellID"
+    
+    let searchBar = UISearchBar()
 
     var filteredDrinks = [Drink]() {
         didSet {
@@ -26,13 +28,18 @@ class SearchDrinkViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        title = "All Cocktails"
+        
         setupTableView()
         loadAllDrinks()
+        setupSearchBar()
     }
     
     private func setupTableView() {
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.keyboardDismissMode = .onDrag
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -53,16 +60,35 @@ class SearchDrinkViewController: UIViewController {
             }
         }
     }
+    
+    private func setupSearchBar() {
+        self.navigationItem.titleView = searchBar
+        searchBar.placeholder = "All coctails"
+        searchBar.keyboardType = .default
+        searchBar.delegate = self
+    }
 }
 
 extension SearchDrinkViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return cocktailDataProvider.drinks.count
+        return filteredDrinks.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        cell.textLabel?.text = cocktailDataProvider.drinks[indexPath.row].strDrink
+        cell.selectionStyle = .none
+        cell.textLabel?.text = filteredDrinks[indexPath.row].strDrink!
         return cell
+    }
+}
+
+extension SearchDrinkViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        filteredDrinks = cocktailDataProvider.drinks.filter { $0.strDrink!.lowercased().hasPrefix(searchText.lowercased()) }
+        print(filteredDrinks.count)
+    }
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.resignFirstResponder()
     }
 }

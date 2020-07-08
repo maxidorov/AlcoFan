@@ -24,8 +24,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         searchDrinkViewController.cocktailApiManager = cocktailApiManager
         searchDrinkViewController.cocktailDataProvider = cocktailDataProvider
         
+        let mainTabBarController = UITabBarController()
+        let navigationSearchViewController = UINavigationController(rootViewController: searchDrinkViewController)
+        mainTabBarController.addChild(navigationSearchViewController)
+        
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = searchDrinkViewController
+        window?.rootViewController = mainTabBarController
         window?.makeKeyAndVisible()
         return true
     }
