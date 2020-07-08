@@ -85,7 +85,6 @@ extension SearchDrinkViewController: UITableViewDelegate, UITableViewDataSource 
 extension SearchDrinkViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         filteredDrinks = cocktailDataProvider.drinks.filter { $0.strDrink!.lowercased().hasPrefix(searchText.lowercased()) }
-        print(filteredDrinks.count)
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
