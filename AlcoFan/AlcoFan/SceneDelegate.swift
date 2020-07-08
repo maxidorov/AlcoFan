@@ -15,9 +15,15 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let mainScene = (scene as? UIWindowScene) else { return }
+        
+        let cocktailApiManager = CocktailApiManager()
+        let cocktailDataProvider = CocktailDataProvider()        
+        let searchDrinkViewController = SearchDrinkViewController()
+        searchDrinkViewController.cocktailApiManager = cocktailApiManager
+        searchDrinkViewController.cocktailDataProvider = cocktailDataProvider
+        
         window = UIWindow(windowScene: mainScene)
-        let viewController = ViewController()
-        window?.rootViewController = viewController
+        window?.rootViewController = searchDrinkViewController
         window?.makeKeyAndVisible()
     }
 
