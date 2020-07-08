@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		3400AEB224B64EF100851ACC /* CocktailApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3468180924B64DFE00227F67 /* CocktailApiManager.swift */; };
+		3400AEB924B68B9D00851ACC /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400AEB824B68B9D00851ACC /* Ingredient.swift */; };
+		3400AEBB24B68BD900851ACC /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400AEBA24B68BD900851ACC /* Ingredients.swift */; };
 		346817EB24B6179000227F67 /* Drink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346817EA24B6179000227F67 /* Drink.swift */; };
 		346817ED24B6192200227F67 /* Drinks.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346817EC24B6192200227F67 /* Drinks.swift */; };
 		346817FD24B6307700227F67 /* NetworkingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 346817FC24B6307700227F67 /* NetworkingError.swift */; };
@@ -22,6 +24,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3400AEB824B68B9D00851ACC /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		3400AEBA24B68BD900851ACC /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		346817EA24B6179000227F67 /* Drink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drink.swift; sourceTree = "<group>"; };
 		346817EC24B6192200227F67 /* Drinks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Drinks.swift; sourceTree = "<group>"; };
 		346817FC24B6307700227F67 /* NetworkingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingError.swift; sourceTree = "<group>"; };
@@ -73,6 +77,8 @@
 			children = (
 				346817EC24B6192200227F67 /* Drinks.swift */,
 				346817EA24B6179000227F67 /* Drink.swift */,
+				3400AEBA24B68BD900851ACC /* Ingredients.swift */,
+				3400AEB824B68B9D00851ACC /* Ingredient.swift */,
 			);
 			path = "JSON Structs";
 			sourceTree = "<group>";
@@ -207,12 +213,14 @@
 				346817ED24B6192200227F67 /* Drinks.swift in Sources */,
 				3468180224B6498700227F67 /* CocktailDataProvider.swift in Sources */,
 				346817FD24B6307700227F67 /* NetworkingError.swift in Sources */,
+				3400AEBB24B68BD900851ACC /* Ingredients.swift in Sources */,
 				346817FF24B6311600227F67 /* NerworkingErrorChecker.swift in Sources */,
 				347D6A2624B60D9800D5F7E2 /* AppDelegate.swift in Sources */,
 				346817EB24B6179000227F67 /* Drink.swift in Sources */,
 				347D6A2824B60D9800D5F7E2 /* SceneDelegate.swift in Sources */,
 				3400AEB224B64EF100851ACC /* CocktailApiManager.swift in Sources */,
 				3468180424B64CDD00227F67 /* CocktailApiUrlMaker.swift in Sources */,
+				3400AEB924B68B9D00851ACC /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
