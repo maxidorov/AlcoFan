@@ -1,2 +1,2 @@
 # AlcoFan
-App for alcohol drink lovers
+App for alcoholic drink lovers
