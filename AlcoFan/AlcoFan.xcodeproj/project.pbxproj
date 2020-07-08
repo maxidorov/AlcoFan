@@ -49,6 +49,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3400AEB324B66E0B00851ACC /* CocktailApi */ = {
+			isa = PBXGroup;
+			children = (
+				3468180924B64DFE00227F67 /* CocktailApiManager.swift */,
+				3468180324B64CDD00227F67 /* CocktailApiUrlMaker.swift */,
+			);
+			path = CocktailApi;
+			sourceTree = "<group>";
+		};
 		346817E924B6178700227F67 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -71,8 +80,7 @@
 		346817F124B61B4A00227F67 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
-				3468180924B64DFE00227F67 /* CocktailApiManager.swift */,
-				3468180324B64CDD00227F67 /* CocktailApiUrlMaker.swift */,
+				3400AEB324B66E0B00851ACC /* CocktailApi */,
 				346817FC24B6307700227F67 /* NetworkingError.swift */,
 				346817FE24B6311600227F67 /* NerworkingErrorChecker.swift */,
 			);
