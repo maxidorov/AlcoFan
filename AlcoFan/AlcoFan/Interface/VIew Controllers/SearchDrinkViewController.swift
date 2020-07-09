@@ -63,7 +63,7 @@ class SearchDrinkViewController: UIViewController {
     
     private func setupSearchBar() {
         self.navigationItem.titleView = searchBar
-        searchBar.placeholder = "All coctails"
+        searchBar.placeholder = "All cocktails"
         searchBar.keyboardType = .default
         searchBar.delegate = self
     }
