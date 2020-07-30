@@ -6,7 +6,11 @@
 //  Copyright © 2020 MS. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+protocol CocktailApiManagerProtocol {
+    func loadAllCocktails(completion: @escaping(Result<[Drink], NetworkingError>) -> ())
+}
 
 class CocktailApiManager {
     
@@ -40,6 +44,17 @@ class CocktailApiManager {
             }.resume()
         }
     }
+    
+//    public func loadImage(_ path: String, completion: @escaping((Result<UIImage, NetworkingError>) -> ())) {
+//        guard let url = URL(string: path) else {
+//            completion(.failure(.cannotCastPathToUrl))
+//            return
+//        }
+//        let drinkImageQueue = DispatchQueue(label: "drinkImageQuquq", qos: .userInitiated)
+//    }
+}
+
+extension CocktailApiManager: CocktailApiManagerProtocol {
     
     public func loadAllCocktails(completion: @escaping((Result<[Drink], NetworkingError>) -> ())) {
         var drinksByLetterDict = [String: [Drink]]()

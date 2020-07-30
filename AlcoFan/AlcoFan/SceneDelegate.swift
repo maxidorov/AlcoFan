@@ -15,12 +15,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let mainScene = (scene as? UIWindowScene) else { return }
-        
-        let cocktailApiManager = CocktailApiManager()
-        let cocktailDataProvider = CocktailDataProvider()        
-        let searchDrinkViewController = SearchDrinkViewController()
-        searchDrinkViewController.cocktailApiManager = cocktailApiManager
-        searchDrinkViewController.cocktailDataProvider = cocktailDataProvider
+              
+        let searchDrinkViewController = SearchDrinkModuleBuilder.build()
         
         let mainTabBarController = UITabBarController()
         let navigationSearchViewController = UINavigationController(rootViewController: searchDrinkViewController)

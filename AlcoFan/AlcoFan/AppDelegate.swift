@@ -18,11 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             return true
         }
         
-        let cocktailApiManager = CocktailApiManager()
-        let cocktailDataProvider = CocktailDataProvider()
-        let searchDrinkViewController = SearchDrinkViewController()
-        searchDrinkViewController.cocktailApiManager = cocktailApiManager
-        searchDrinkViewController.cocktailDataProvider = cocktailDataProvider
+        let searchDrinkViewController = SearchDrinkModuleBuilder.build()
         
         let mainTabBarController = UITabBarController()
         let navigationSearchViewController = UINavigationController(rootViewController: searchDrinkViewController)
