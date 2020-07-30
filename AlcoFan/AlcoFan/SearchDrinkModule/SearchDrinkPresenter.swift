@@ -6,7 +6,7 @@
 //  Copyright © 2020 MS. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SearchDrinkPresenterProtocol {
     func loadAllDrinks()
@@ -47,5 +47,4 @@ extension SearchDrinkPresenter: SearchDrinkPresenterProtocol {
             })
         }
     }
-    
 }

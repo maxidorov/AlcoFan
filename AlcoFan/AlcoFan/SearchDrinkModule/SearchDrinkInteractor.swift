@@ -6,11 +6,12 @@
 //  Copyright © 2020 MS. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 protocol SearchDrinkInteractorProtocol {
     func getAllDrinks(completion: @escaping([Drink]) -> ())
     func getDrinksContains(letters: String, completion: @escaping([Drink]) -> ())
+//    func getImage(for drink: Drink, completion: @escaping(UIImage) -> ())
 }
 
 class SearchDrinkInteractor {
@@ -33,12 +34,12 @@ extension SearchDrinkInteractor: SearchDrinkInteractorProtocol {
                 self.allDrinks = drinks
                 completion(drinks)
             case .failure(let error):
-                print(error)
+                print(error.localizedDescription)
             }
         }
     }
     
-    func getDrinksContains(letters: String, completion: @escaping ([Drink]) -> ()) {
+    func getDrinksContains(letters: String, completion: @escaping([Drink]) -> ()) {
         
         guard allDrinks.isEmpty else {
             completion(allDrinks.filter { $0.containsLetters(letters) })
@@ -49,4 +50,15 @@ extension SearchDrinkInteractor: SearchDrinkInteractorProtocol {
             completion(drinks.filter { $0.containsLetters(letters) })
         }
     }
+    
+//    func getImage(for drink: Drink, completion: @escaping(UIImage) -> ()) {
+//        cocktailApiManager.loadImage(for: drink) { (result) in
+//            switch result {
+//            case .success(let image):
+//                completion(image)
+//            case .failure(let error):
+//                print(error.localizedDescription)
+//            }
+//        }
+//    }
 }

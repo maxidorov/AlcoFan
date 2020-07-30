@@ -10,6 +10,7 @@ import UIKit
 
 protocol CocktailApiManagerProtocol {
     func loadAllCocktails(completion: @escaping(Result<[Drink], NetworkingError>) -> ())
+    func loadImage(for drink: Drink, completion: @escaping(Result<UIImage, NetworkingError>) -> ())
 }
 
 class CocktailApiManager {
@@ -25,7 +26,7 @@ class CocktailApiManager {
         case lookupARandomCocktail
     }
     
-    public func makeRequest(_ requestTarget: RequestTarget, _ requestStr: String, completion: @escaping((Result<[Drink], NetworkingError>) -> ())) {
+    private func makeRequest(_ requestTarget: RequestTarget, _ requestStr: String, completion: @escaping((Result<[Drink], NetworkingError>) -> ())) {
         let url = cocktailApiUrlMaker.getUrl(requestTarget, requestStr)
         let drinksQueue = DispatchQueue(label: "drinksQueue", qos: .userInitiated)
         drinksQueue.async {
@@ -45,13 +46,23 @@ class CocktailApiManager {
         }
     }
     
-//    public func loadImage(_ path: String, completion: @escaping((Result<UIImage, NetworkingError>) -> ())) {
-//        guard let url = URL(string: path) else {
-//            completion(.failure(.cannotCastPathToUrl))
-//            return
-//        }
-//        let drinkImageQueue = DispatchQueue(label: "drinkImageQuquq", qos: .userInitiated)
-//    }
+    private func loadImage(_ path: String, completion: @escaping((Result<UIImage, NetworkingError>) -> ())) {
+        guard let url = URL(string: path) else {
+            completion(.failure(.cannotCastPathToUrl))
+            return
+        }
+        let drinkImageQueue = DispatchQueue(label: "drinkImageQuquq", qos: .userInitiated)
+        drinkImageQueue.async {
+            do {
+                let imageData = try Data(contentsOf: url)
+                if let image = UIImage(data: imageData) {
+                    completion(.success(image))
+                }
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+    }
 }
 
 extension CocktailApiManager: CocktailApiManagerProtocol {
@@ -90,6 +101,17 @@ extension CocktailApiManager: CocktailApiManagerProtocol {
             }
             allDrinks.sort{ $0.strDrink! < $1.strDrink! }
             completion(.success(allDrinks))
+        }
+    }
+    
+    func loadImage(for drink: Drink, completion: @escaping (Result<UIImage, NetworkingError>) -> ()) {
+        loadImage(drink.strDrinkThumb!) { (result) in
+            switch result {
+            case .success(let image):
+                completion(.success(image))
+            case .failure(let error):
+                print(error.localizedDescription)
+            }
         }
     }
 }
