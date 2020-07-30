@@ -17,4 +17,5 @@ enum NetworkingError: Error {
     case invalidHttpResponseStatusCode
     case jsonDecoderError
     case unexpectedError
+    case unab
 }

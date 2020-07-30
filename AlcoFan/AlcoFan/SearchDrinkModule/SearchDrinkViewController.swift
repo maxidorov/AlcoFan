@@ -45,7 +45,7 @@ class SearchDrinkViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.keyboardDismissMode = .onDrag
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: SearchDrinkViewController.cellID)
+        tableView.register(UINib.init(nibName: "DrinkTableViewCell", bundle: nil), forCellReuseIdentifier: SearchDrinkViewController.cellID)
         view.addSubview(tableView)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
@@ -74,10 +74,13 @@ extension SearchDrinkViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchDrinkViewController.cellID, for: indexPath)
-        cell.selectionStyle = .none
-        cell.textLabel?.text = filteredDrinks[indexPath.row].strDrink!
+        let cell = tableView.dequeueReusableCell(withIdentifier: SearchDrinkViewController.cellID, for: indexPath) as! DrinkTableViewCell
+        cell.configure(with: filteredDrinks[indexPath.row])
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 80
     }
 }
 
