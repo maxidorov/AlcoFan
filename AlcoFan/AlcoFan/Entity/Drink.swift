@@ -56,3 +56,10 @@ struct Drink: Decodable {
     var strCreativeCommonsConfirmed: String?
     var dateModified: String?
 }
+
+extension Drink {
+    func containsLetters(_ letters: String) -> Bool {
+        guard strDrink != nil else { return letters == "" }
+        return strDrink!.lowercased().hasPrefix(letters.lowercased())
+    }
+}

@@ -41,16 +41,12 @@ extension SearchDrinkInteractor: SearchDrinkInteractorProtocol {
     func getDrinksContains(letters: String, completion: @escaping ([Drink]) -> ()) {
         
         guard allDrinks.isEmpty else {
-            completion(allDrinks.filter {
-                $0.strDrink!.lowercased().hasPrefix(letters.lowercased())
-            })
+            completion(allDrinks.filter { $0.containsLetters(letters) })
             return
         }
         
         getAllDrinks { (drinks) in
-            completion(drinks.filter {
-                $0.strDrink!.lowercased().hasPrefix(letters.lowercased())
-            })
+            completion(drinks.filter { $0.containsLetters(letters) })
         }
     }
 }
