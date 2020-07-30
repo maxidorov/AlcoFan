@@ -88,8 +88,8 @@
 		34652BEC24D31302001E23AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				34652BED24D3131C001E23AF /* DrinkTableViewCell.swift */,
-				34652BEE24D3131C001E23AF /* DrinkTableViewCell.xib */,
+				34652BF124D35612001E23AF /* CachedImageView */,
+				34652BF424D35D7A001E23AF /* DrinkTableViewCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -100,6 +100,31 @@
 				34652BF224D35627001E23AF /* CachedImageView.swift */,
 			);
 			path = CachedImageView;
+			sourceTree = "<group>";
+		};
+		34652BF424D35D7A001E23AF /* DrinkTableViewCell */ = {
+			isa = PBXGroup;
+			children = (
+				34652BED24D3131C001E23AF /* DrinkTableViewCell.swift */,
+				34652BEE24D3131C001E23AF /* DrinkTableViewCell.xib */,
+			);
+			path = DrinkTableViewCell;
+			sourceTree = "<group>";
+		};
+		34652BF524D35EE3001E23AF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				3400AEBC24B68D5E00851ACC /* Error handling helpers */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		34652BF624D35EF5001E23AF /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				3400AEB324B66E0B00851ACC /* CocktailApi */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		347D6A1924B60D9800D5F7E2 = {
@@ -124,10 +149,9 @@
 			children = (
 				347D6A2524B60D9800D5F7E2 /* AppDelegate.swift */,
 				347D6A2724B60D9800D5F7E2 /* SceneDelegate.swift */,
-				34652BF124D35612001E23AF /* CachedImageView */,
+				34652BF624D35EF5001E23AF /* Api */,
+				34652BF524D35EE3001E23AF /* Helpers */,
 				34652BEC24D31302001E23AF /* Views */,
-				3400AEBC24B68D5E00851ACC /* Error handling helpers */,
-				3400AEB324B66E0B00851ACC /* CocktailApi */,
 				34C29A4624D0D66C006A57FB /* SearchDrinkModule */,
 				34C29A4524D0D635006A57FB /* Entity */,
 				347D6A2E24B60D9B00D5F7E2 /* Assets.xcassets */,

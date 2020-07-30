@@ -15,8 +15,6 @@ class DrinkTableViewCell: UITableViewCell {
     
     func configure(with drink: Drink) {
         drinkNameLabel.text = drink.strDrink ?? ""
-        if let drinkImageUrlStr = drink.strDrinkThumb {
-            drinkImageView.loadImage(from: drinkImageUrlStr)
-        }
+        drinkImageView.loadImage(from: drink.strDrinkThumb)
     }
 }

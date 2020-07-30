@@ -13,32 +13,32 @@ let imageCache = NSCache<NSString, UIImage>()
 class CachedImageView: UIImageView {
     
     var imageUrl: String?
+    var placeholderImage = UIImage()
     
-    func loadImage(from urlStr: String) {
+    func loadImage(from urlStr: String?) {
+        guard urlStr != nil else { return }
         
-        imageUrl = urlStr
-        image = UIImage() // placeholder image
+        image = placeholderImage
         
-        if let cachedImage = imageCache.object(forKey: NSString(string: imageUrl!)) {
+        if let cachedImage = imageCache.object(forKey: NSString(string: urlStr!)) {
             image = cachedImage
             return
         }
         
-        guard let url = URL(string: urlStr) else {
+        guard let url = URL(string: urlStr!) else {
             return
         }
         
-        imageUrl = urlStr
         URLSession.shared.dataTask(with: url) { data, response, error in
             if let err = error {
                 print(err)
             } else {
                 DispatchQueue.main.async {
-                    let tempImg = UIImage(data: data!)
+                    let imageFromData = UIImage(data: data!)
                     if self.imageUrl == urlStr {
-                        self.image = tempImg
+                        self.image = imageFromData
                     }
-                    imageCache.setObject(tempImg!, forKey: NSString(string: urlStr))
+                    imageCache.setObject(imageFromData!, forKey: NSString(string: urlStr!))
                 }
             }
         }.resume()
