@@ -50,15 +50,4 @@ extension SearchDrinkInteractor: SearchDrinkInteractorProtocol {
             completion(drinks.filter { $0.containsLetters(letters) })
         }
     }
-    
-//    func getImage(for drink: Drink, completion: @escaping(UIImage) -> ()) {
-//        cocktailApiManager.loadImage(for: drink) { (result) in
-//            switch result {
-//            case .success(let image):
-//                completion(image)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
 }
