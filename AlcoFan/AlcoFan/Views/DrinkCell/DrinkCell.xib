@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="id" id="gTV-IL-0wX" customClass="DrinkCell" customModule="AlcoFan" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="105"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="345" height="105"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Q0c-wx-hkR">
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="105"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M9g-7H-25g">
+                                <rect key="frame" x="12" y="10" width="321" height="85"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-HP-zWE">
+                                        <rect key="frame" x="0.0" y="0.0" width="321" height="85"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGH-EV-WiZ">
+                                                <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
+                                                <subviews>
+                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5UY-Js-hmv" customClass="CustomCachedImageView" customModule="AlcoFan" customModuleProvider="target">
+                                                        <rect key="frame" x="8" y="8" width="69" height="69"/>
+                                                    </imageView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="5UY-Js-hmv" secondAttribute="trailing" constant="8" id="bMD-E0-7ov"/>
+                                                    <constraint firstAttribute="bottom" secondItem="5UY-Js-hmv" secondAttribute="bottom" constant="8" id="gIj-Sy-aU7"/>
+                                                    <constraint firstItem="5UY-Js-hmv" firstAttribute="top" secondItem="GGH-EV-WiZ" secondAttribute="top" constant="8" id="lzc-LP-hXR"/>
+                                                    <constraint firstAttribute="width" secondItem="GGH-EV-WiZ" secondAttribute="height" multiplier="1:1" id="rUN-b8-m9C"/>
+                                                    <constraint firstItem="5UY-Js-hmv" firstAttribute="leading" secondItem="GGH-EV-WiZ" secondAttribute="leading" constant="8" id="s5q-VQ-jjp"/>
+                                                </constraints>
+                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYj-IE-Mnt">
+                                                <rect key="frame" x="85" y="32.5" width="236" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="TTh-HP-zWE" secondAttribute="trailing" id="9jp-R5-e8q"/>
+                                    <constraint firstItem="TTh-HP-zWE" firstAttribute="leading" secondItem="M9g-7H-25g" secondAttribute="leading" id="M68-4B-oIb"/>
+                                    <constraint firstItem="TTh-HP-zWE" firstAttribute="top" secondItem="M9g-7H-25g" secondAttribute="top" id="X94-XV-Oc3"/>
+                                    <constraint firstAttribute="bottom" secondItem="TTh-HP-zWE" secondAttribute="bottom" id="sHM-UQ-sQu"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="M9g-7H-25g" secondAttribute="bottom" constant="10" id="N1N-ix-Nmm"/>
+                            <constraint firstAttribute="trailing" secondItem="M9g-7H-25g" secondAttribute="trailing" constant="12" id="lo9-Ze-eNx"/>
+                            <constraint firstItem="M9g-7H-25g" firstAttribute="top" secondItem="Q0c-wx-hkR" secondAttribute="top" constant="10" id="rlO-Nl-Z9O"/>
+                            <constraint firstItem="M9g-7H-25g" firstAttribute="leading" secondItem="Q0c-wx-hkR" secondAttribute="leading" constant="12" id="z5B-lC-zzb"/>
+                        </constraints>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="Q0c-wx-hkR" secondAttribute="trailing" id="A0v-Hw-K5B"/>
+                <constraint firstItem="Q0c-wx-hkR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="KYI-4e-pdL"/>
+                <constraint firstItem="Q0c-wx-hkR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="MZk-gS-TiB"/>
+                <constraint firstAttribute="bottom" secondItem="Q0c-wx-hkR" secondAttribute="bottom" id="eWa-Z9-Xbr"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="345" height="105"/>
+            <connections>
+                <outlet property="backDrinkImageView" destination="GGH-EV-WiZ" id="XjM-xI-GEH"/>
+                <outlet property="backShadowView" destination="M9g-7H-25g" id="Qgm-eA-Dxp"/>
+                <outlet property="drinkImageView" destination="5UY-Js-hmv" id="H2d-pl-MHc"/>
+                <outlet property="drinkNameLabel" destination="TYj-IE-Mnt" id="Bwd-ev-RtT"/>
+                <outlet property="stackView" destination="TTh-HP-zWE" id="zbD-qT-Nb1"/>
+            </connections>
+            <point key="canvasLocation" x="351.44927536231887" y="171.76339285714286"/>
+        </collectionViewCell>
+    </objects>
+</document>

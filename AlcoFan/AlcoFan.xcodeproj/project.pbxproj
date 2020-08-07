@@ -26,7 +26,17 @@
 		34C29A4A24D0EF98006A57FB /* SearchDrinkRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C29A4924D0EF98006A57FB /* SearchDrinkRouter.swift */; };
 		34C29A4C24D0EFE1006A57FB /* SearchDrinkInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C29A4B24D0EFE1006A57FB /* SearchDrinkInteractor.swift */; };
 		34C29A4E24D0F034006A57FB /* SearchDrinkModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34C29A4D24D0F034006A57FB /* SearchDrinkModuleBuilder.swift */; };
-		34E93F1024DDB1A40015C541 /* DrinkCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F0E24DDB1A40015C541 /* DrinkCollectionViewCell.swift */; };
+		34E93F1424DDCA2E0015C541 /* UIView+fill.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F1324DDCA2E0015C541 /* UIView+fill.swift */; };
+		34E93F1624DDCC8E0015C541 /* UIView+addShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F1524DDCC8E0015C541 /* UIView+addShadow.swift */; };
+		34E93F1B24DDCCB70015C541 /* UIView+shadowOpacity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F1724DDCCB70015C541 /* UIView+shadowOpacity.swift */; };
+		34E93F1C24DDCCB70015C541 /* UIView+shadowColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F1824DDCCB70015C541 /* UIView+shadowColor.swift */; };
+		34E93F1D24DDCCB70015C541 /* UIView+shadowRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F1924DDCCB70015C541 /* UIView+shadowRadius.swift */; };
+		34E93F1E24DDCCB70015C541 /* UIView+shadowOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F1A24DDCCB70015C541 /* UIView+shadowOffset.swift */; };
+		34E93F2224DDCECE0015C541 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F2124DDCECE0015C541 /* UIView+cornerRadius.swift */; };
+		34E93F2924DDD2CB0015C541 /* UIImageView+makeRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F2824DDD2CB0015C541 /* UIImageView+makeRounded.swift */; };
+		34E93F2C24DDDCBF0015C541 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F2A24DDDCBF0015C541 /* DrinkCell.swift */; };
+		34E93F2D24DDDCBF0015C541 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E93F2B24DDDCBF0015C541 /* DrinkCell.xib */; };
+		34E93F3024DDDF3B0015C541 /* CustomCachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F2F24DDDF3B0015C541 /* CustomCachedImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,7 +61,17 @@
 		34C29A4924D0EF98006A57FB /* SearchDrinkRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDrinkRouter.swift; sourceTree = "<group>"; };
 		34C29A4B24D0EFE1006A57FB /* SearchDrinkInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDrinkInteractor.swift; sourceTree = "<group>"; };
 		34C29A4D24D0F034006A57FB /* SearchDrinkModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchDrinkModuleBuilder.swift; sourceTree = "<group>"; };
-		34E93F0E24DDB1A40015C541 /* DrinkCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCollectionViewCell.swift; sourceTree = "<group>"; };
+		34E93F1324DDCA2E0015C541 /* UIView+fill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+fill.swift"; sourceTree = "<group>"; };
+		34E93F1524DDCC8E0015C541 /* UIView+addShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+addShadow.swift"; sourceTree = "<group>"; };
+		34E93F1724DDCCB70015C541 /* UIView+shadowOpacity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+shadowOpacity.swift"; sourceTree = "<group>"; };
+		34E93F1824DDCCB70015C541 /* UIView+shadowColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+shadowColor.swift"; sourceTree = "<group>"; };
+		34E93F1924DDCCB70015C541 /* UIView+shadowRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+shadowRadius.swift"; sourceTree = "<group>"; };
+		34E93F1A24DDCCB70015C541 /* UIView+shadowOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+shadowOffset.swift"; sourceTree = "<group>"; };
+		34E93F2124DDCECE0015C541 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
+		34E93F2824DDD2CB0015C541 /* UIImageView+makeRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+makeRounded.swift"; sourceTree = "<group>"; };
+		34E93F2A24DDDCBF0015C541 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
+		34E93F2B24DDDCBF0015C541 /* DrinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCell.xib; sourceTree = "<group>"; };
+		34E93F2F24DDDF3B0015C541 /* CustomCachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCachedImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,31 +106,26 @@
 		34652BEC24D31302001E23AF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				34652BF124D35612001E23AF /* CachedImageView */,
-				34652BF424D35D7A001E23AF /* DrinkTableViewCell */,
+				34652BF224D35627001E23AF /* CachedImageView.swift */,
+				34E93F2F24DDDF3B0015C541 /* CustomCachedImageView.swift */,
+				34652BF424D35D7A001E23AF /* DrinkCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
 		};
-		34652BF124D35612001E23AF /* CachedImageView */ = {
+		34652BF424D35D7A001E23AF /* DrinkCell */ = {
 			isa = PBXGroup;
 			children = (
-				34652BF224D35627001E23AF /* CachedImageView.swift */,
+				34E93F2A24DDDCBF0015C541 /* DrinkCell.swift */,
+				34E93F2B24DDDCBF0015C541 /* DrinkCell.xib */,
 			);
-			path = CachedImageView;
-			sourceTree = "<group>";
-		};
-		34652BF424D35D7A001E23AF /* DrinkTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				34E93F0E24DDB1A40015C541 /* DrinkCollectionViewCell.swift */,
-			);
-			path = DrinkTableViewCell;
+			path = DrinkCell;
 			sourceTree = "<group>";
 		};
 		34652BF524D35EE3001E23AF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				34E93F1224DDCA1C0015C541 /* Extensions */,
 				3400AEBC24B68D5E00851ACC /* Error handling helpers */,
 			);
 			path = Helpers;
@@ -181,6 +196,45 @@
 			path = SearchDrinkModule;
 			sourceTree = "<group>";
 		};
+		34E93F1224DDCA1C0015C541 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				34E93F2724DDD2B70015C541 /* UIImageView */,
+				34E93F2624DDD2AC0015C541 /* UIView */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		34E93F2024DDCCD10015C541 /* UIView+shadow */ = {
+			isa = PBXGroup;
+			children = (
+				34E93F1524DDCC8E0015C541 /* UIView+addShadow.swift */,
+				34E93F1824DDCCB70015C541 /* UIView+shadowColor.swift */,
+				34E93F1A24DDCCB70015C541 /* UIView+shadowOffset.swift */,
+				34E93F1724DDCCB70015C541 /* UIView+shadowOpacity.swift */,
+				34E93F1924DDCCB70015C541 /* UIView+shadowRadius.swift */,
+			);
+			path = "UIView+shadow";
+			sourceTree = "<group>";
+		};
+		34E93F2624DDD2AC0015C541 /* UIView */ = {
+			isa = PBXGroup;
+			children = (
+				34E93F1324DDCA2E0015C541 /* UIView+fill.swift */,
+				34E93F2124DDCECE0015C541 /* UIView+cornerRadius.swift */,
+				34E93F2024DDCCD10015C541 /* UIView+shadow */,
+			);
+			path = UIView;
+			sourceTree = "<group>";
+		};
+		34E93F2724DDD2B70015C541 /* UIImageView */ = {
+			isa = PBXGroup;
+			children = (
+				34E93F2824DDD2CB0015C541 /* UIImageView+makeRounded.swift */,
+			);
+			path = UIImageView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -241,6 +295,7 @@
 			files = (
 				347D6A3224B60D9B00D5F7E2 /* LaunchScreen.storyboard in Resources */,
 				347D6A2F24B60D9B00D5F7E2 /* Assets.xcassets in Resources */,
+				34E93F2D24DDDCBF0015C541 /* DrinkCell.xib in Resources */,
 				34652BEB24D30942001E23AF /* File in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -253,21 +308,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				347D6A2A24B60D9800D5F7E2 /* SearchDrinkViewController.swift in Sources */,
+				34E93F2224DDCECE0015C541 /* UIView+cornerRadius.swift in Sources */,
+				34E93F1424DDCA2E0015C541 /* UIView+fill.swift in Sources */,
 				34C29A4A24D0EF98006A57FB /* SearchDrinkRouter.swift in Sources */,
 				346817ED24B6192200227F67 /* Drinks.swift in Sources */,
+				34E93F1D24DDCCB70015C541 /* UIView+shadowRadius.swift in Sources */,
+				34E93F2C24DDDCBF0015C541 /* DrinkCell.swift in Sources */,
 				34652BF324D35628001E23AF /* CachedImageView.swift in Sources */,
 				34C29A4E24D0F034006A57FB /* SearchDrinkModuleBuilder.swift in Sources */,
+				34E93F1624DDCC8E0015C541 /* UIView+addShadow.swift in Sources */,
+				34E93F1C24DDCCB70015C541 /* UIView+shadowColor.swift in Sources */,
 				346817FD24B6307700227F67 /* NetworkingError.swift in Sources */,
 				3400AEBB24B68BD900851ACC /* Ingredients.swift in Sources */,
+				34E93F3024DDDF3B0015C541 /* CustomCachedImageView.swift in Sources */,
+				34E93F1E24DDCCB70015C541 /* UIView+shadowOffset.swift in Sources */,
 				346817FF24B6311600227F67 /* NerworkingErrorChecker.swift in Sources */,
 				34C29A4824D0EF0B006A57FB /* SearchDrinkPresenter.swift in Sources */,
 				347D6A2624B60D9800D5F7E2 /* AppDelegate.swift in Sources */,
+				34E93F1B24DDCCB70015C541 /* UIView+shadowOpacity.swift in Sources */,
 				346817EB24B6179000227F67 /* Drink.swift in Sources */,
 				347D6A2824B60D9800D5F7E2 /* SceneDelegate.swift in Sources */,
 				3400AEB224B64EF100851ACC /* CocktailApiManager.swift in Sources */,
 				34C29A4C24D0EFE1006A57FB /* SearchDrinkInteractor.swift in Sources */,
+				34E93F2924DDD2CB0015C541 /* UIImageView+makeRounded.swift in Sources */,
 				3468180424B64CDD00227F67 /* CocktailApiUrlMaker.swift in Sources */,
-				34E93F1024DDB1A40015C541 /* DrinkCollectionViewCell.swift in Sources */,
 				3400AEB924B68B9D00851ACC /* Ingredient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

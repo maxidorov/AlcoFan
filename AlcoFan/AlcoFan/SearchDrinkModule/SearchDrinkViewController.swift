@@ -44,9 +44,8 @@ class SearchDrinkViewController: UIViewController {
         
         let collectionViewLayout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
-            let inset: CGFloat = 16
-            layout.minimumLineSpacing = inset
-            layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 2 * inset, height: 120)
+            layout.minimumLineSpacing = 0
+            layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 120)
             return layout
         }()
         
@@ -59,16 +58,16 @@ class SearchDrinkViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: DrinkCollectionViewCell.cellID)
+        collectionView.register(UINib(nibName: "DrinkCell", bundle: nil), forCellWithReuseIdentifier: "id")
         collectionView.backgroundColor = .white
     }
     
     private func setupSearchBar() {
         searchBar = UISearchBar()
         self.navigationItem.titleView = searchBar
+        searchBar.delegate = self
         searchBar.placeholder = "All cocktails"
         searchBar.keyboardType = .default
-        searchBar.delegate = self
     }
 }
 
@@ -80,12 +79,11 @@ extension SearchDrinkViewController: SearchDrinkViewProtocol {
 
 extension SearchDrinkViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        print(filteredDrinks.count)
         return filteredDrinks.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DrinkCollectionViewCell.cellID, for: indexPath) as! DrinkCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "id", for: indexPath) as! DrinkCell
         cell.configure(with: filteredDrinks[indexPath.row])
         return cell
     }
