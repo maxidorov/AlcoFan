@@ -33,7 +33,6 @@
 		34E93F1D24DDCCB70015C541 /* UIView+shadowRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F1924DDCCB70015C541 /* UIView+shadowRadius.swift */; };
 		34E93F1E24DDCCB70015C541 /* UIView+shadowOffset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F1A24DDCCB70015C541 /* UIView+shadowOffset.swift */; };
 		34E93F2224DDCECE0015C541 /* UIView+cornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F2124DDCECE0015C541 /* UIView+cornerRadius.swift */; };
-		34E93F2924DDD2CB0015C541 /* UIImageView+makeRounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F2824DDD2CB0015C541 /* UIImageView+makeRounded.swift */; };
 		34E93F2C24DDDCBF0015C541 /* DrinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F2A24DDDCBF0015C541 /* DrinkCell.swift */; };
 		34E93F2D24DDDCBF0015C541 /* DrinkCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 34E93F2B24DDDCBF0015C541 /* DrinkCell.xib */; };
 		34E93F3024DDDF3B0015C541 /* CustomCachedImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34E93F2F24DDDF3B0015C541 /* CustomCachedImageView.swift */; };
@@ -68,7 +67,6 @@
 		34E93F1924DDCCB70015C541 /* UIView+shadowRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+shadowRadius.swift"; sourceTree = "<group>"; };
 		34E93F1A24DDCCB70015C541 /* UIView+shadowOffset.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+shadowOffset.swift"; sourceTree = "<group>"; };
 		34E93F2124DDCECE0015C541 /* UIView+cornerRadius.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+cornerRadius.swift"; sourceTree = "<group>"; };
-		34E93F2824DDD2CB0015C541 /* UIImageView+makeRounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+makeRounded.swift"; sourceTree = "<group>"; };
 		34E93F2A24DDDCBF0015C541 /* DrinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCell.swift; sourceTree = "<group>"; };
 		34E93F2B24DDDCBF0015C541 /* DrinkCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DrinkCell.xib; sourceTree = "<group>"; };
 		34E93F2F24DDDF3B0015C541 /* CustomCachedImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomCachedImageView.swift; sourceTree = "<group>"; };
@@ -230,7 +228,6 @@
 		34E93F2724DDD2B70015C541 /* UIImageView */ = {
 			isa = PBXGroup;
 			children = (
-				34E93F2824DDD2CB0015C541 /* UIImageView+makeRounded.swift */,
 			);
 			path = UIImageView;
 			sourceTree = "<group>";
@@ -330,7 +327,6 @@
 				347D6A2824B60D9800D5F7E2 /* SceneDelegate.swift in Sources */,
 				3400AEB224B64EF100851ACC /* CocktailApiManager.swift in Sources */,
 				34C29A4C24D0EFE1006A57FB /* SearchDrinkInteractor.swift in Sources */,
-				34E93F2924DDD2CB0015C541 /* UIImageView+makeRounded.swift in Sources */,
 				3468180424B64CDD00227F67 /* CocktailApiUrlMaker.swift in Sources */,
 				3400AEB924B68B9D00851ACC /* Ingredient.swift in Sources */,
 			);
