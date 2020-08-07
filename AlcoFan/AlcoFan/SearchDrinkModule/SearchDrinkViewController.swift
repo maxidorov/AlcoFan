@@ -14,16 +14,15 @@ protocol SearchDrinkViewProtocol: class {
 
 class SearchDrinkViewController: UIViewController {
     
-    var presenter: SearchDrinkPresenter?
+    public var presenter: SearchDrinkPresenter?
     
-    let tableView = UITableView()
+    private var searchBar: UISearchBar!
+    private var collectionView: UICollectionView!
     private static let cellID = "cellID"
-    
-    let searchBar = UISearchBar()
 
-    var filteredDrinks = [Drink]() {
+    private var filteredDrinks = [Drink]() {
         didSet {
-            self.tableView.reloadData()
+            self.collectionView.reloadData()
         }
     }
     
@@ -31,8 +30,8 @@ class SearchDrinkViewController: UIViewController {
         super.viewDidLoad()
         
         setupTitle()
-        setupTableView()
         setupSearchBar()
+        setupCollectionView()
         
         self.presenter?.loadAllDrinks()
     }
@@ -41,20 +40,31 @@ class SearchDrinkViewController: UIViewController {
         title = "All Cocktails"
     }
     
-    private func setupTableView() {
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.keyboardDismissMode = .onDrag
-        tableView.register(UINib.init(nibName: "DrinkTableViewCell", bundle: nil), forCellReuseIdentifier: SearchDrinkViewController.cellID)
-        view.addSubview(tableView)
-        tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-        tableView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        tableView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        tableView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    private func setupCollectionView() {
+        
+        let collectionViewLayout: UICollectionViewFlowLayout = {
+            let layout = UICollectionViewFlowLayout()
+            let inset: CGFloat = 16
+            layout.minimumLineSpacing = inset
+            layout.itemSize = CGSize(width: UIScreen.main.bounds.width - 2 * inset, height: 120)
+            return layout
+        }()
+        
+        collectionView = UICollectionView(frame: view.frame, collectionViewLayout: collectionViewLayout)
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        collectionView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(DrinkCollectionViewCell.self, forCellWithReuseIdentifier: DrinkCollectionViewCell.cellID)
+        collectionView.backgroundColor = .white
     }
     
     private func setupSearchBar() {
+        searchBar = UISearchBar()
         self.navigationItem.titleView = searchBar
         searchBar.placeholder = "All cocktails"
         searchBar.keyboardType = .default
@@ -68,19 +78,16 @@ extension SearchDrinkViewController: SearchDrinkViewProtocol {
     }
 }
 
-extension SearchDrinkViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension SearchDrinkViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        print(filteredDrinks.count)
         return filteredDrinks.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: SearchDrinkViewController.cellID, for: indexPath) as! DrinkTableViewCell
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DrinkCollectionViewCell.cellID, for: indexPath) as! DrinkCollectionViewCell
         cell.configure(with: filteredDrinks[indexPath.row])
         return cell
-    }
-    
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80
     }
 }
 

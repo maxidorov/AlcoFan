@@ -13,7 +13,7 @@ class SearchDrinkModuleBuilder {
     static func build() -> UIViewController {
         let view = SearchDrinkViewController()
         let interactor = SearchDrinkInteractor()
-        interactor.cocktailApiManager = CocktailApiManager()
+        interactor.cocktailApiManager = CocktailApiManager(cocktailApiUrlMaker: CocktailApiUrlMaker())
         let router = SearchDrinkRouter(view: view)
         let presenter = SearchDrinkPresenter(view: view, interactor: interactor, router: router)
         view.presenter = presenter
