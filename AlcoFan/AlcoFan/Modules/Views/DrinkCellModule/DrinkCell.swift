@@ -48,11 +48,6 @@ class DrinkCell: UICollectionViewCell {
         }
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
-    
     public func configure(with drink: Drink) {
         presenter?.loadDrinkName(drink)
         presenter?.loadDrinkIngredients(drink)

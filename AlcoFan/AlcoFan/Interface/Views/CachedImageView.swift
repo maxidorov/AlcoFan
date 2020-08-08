@@ -22,6 +22,7 @@ class CachedImageView: UIImageView {
         }
         
         image = placeholderImage
+        imageUrl = urlStr
         
         if let cachedImage = imageCache.object(forKey: NSString(string: urlStr!)) {
             image = cachedImage
