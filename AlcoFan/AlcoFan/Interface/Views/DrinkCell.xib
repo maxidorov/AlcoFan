@@ -24,7 +24,7 @@
                                 <rect key="frame" x="12" y="10" width="321" height="85"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="TTh-HP-zWE">
-                                        <rect key="frame" x="0.0" y="0.0" width="321" height="85"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="313" height="85"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GGH-EV-WiZ">
                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="85"/>
@@ -43,22 +43,22 @@
                                                 </constraints>
                                             </view>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bTO-zd-GQb">
-                                                <rect key="frame" x="85" y="0.0" width="236" height="85"/>
+                                                <rect key="frame" x="85" y="16" width="228" height="53"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYj-IE-Mnt">
-                                                        <rect key="frame" x="0.0" y="0.0" width="236" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="228" height="17.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-Mk-upd">
-                                                        <rect key="frame" x="0.0" y="28.5" width="236" height="28"/>
+                                                        <rect key="frame" x="0.0" y="17.5" width="228" height="18"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSb-Yv-gon">
-                                                        <rect key="frame" x="0.0" y="56.5" width="236" height="28.5"/>
+                                                        <rect key="frame" x="0.0" y="35.5" width="228" height="17.5"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -67,13 +67,13 @@
                                             </stackView>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="bTO-zd-GQb" firstAttribute="height" secondItem="TTh-HP-zWE" secondAttribute="height" id="FHs-nk-TBf"/>
+                                            <constraint firstItem="bTO-zd-GQb" firstAttribute="height" secondItem="TTh-HP-zWE" secondAttribute="height" constant="-32" id="FHs-nk-TBf"/>
                                         </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="TTh-HP-zWE" secondAttribute="trailing" id="9jp-R5-e8q"/>
+                                    <constraint firstAttribute="trailing" secondItem="TTh-HP-zWE" secondAttribute="trailing" constant="8" id="9jp-R5-e8q"/>
                                     <constraint firstItem="TTh-HP-zWE" firstAttribute="leading" secondItem="M9g-7H-25g" secondAttribute="leading" id="M68-4B-oIb"/>
                                     <constraint firstItem="TTh-HP-zWE" firstAttribute="top" secondItem="M9g-7H-25g" secondAttribute="top" id="X94-XV-Oc3"/>
                                     <constraint firstAttribute="bottom" secondItem="TTh-HP-zWE" secondAttribute="bottom" id="sHM-UQ-sQu"/>
@@ -101,9 +101,9 @@
             <connections>
                 <outlet property="backDrinkImageView" destination="GGH-EV-WiZ" id="XjM-xI-GEH"/>
                 <outlet property="backShadowView" destination="M9g-7H-25g" id="Qgm-eA-Dxp"/>
-                <outlet property="drinkDescriptionLabel" destination="hSb-Yv-gon" id="imk-qJ-xsO"/>
                 <outlet property="drinkImageView" destination="5UY-Js-hmv" id="H2d-pl-MHc"/>
                 <outlet property="drinkIngredientsLabel" destination="OYs-Mk-upd" id="Tce-KG-JdL"/>
+                <outlet property="drinkInstructionsLabel" destination="hSb-Yv-gon" id="imk-qJ-xsO"/>
                 <outlet property="drinkNameLabel" destination="TYj-IE-Mnt" id="Bwd-ev-RtT"/>
                 <outlet property="stackView" destination="TTh-HP-zWE" id="zbD-qT-Nb1"/>
             </connections>

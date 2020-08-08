@@ -9,14 +9,14 @@
 import Foundation
 
 protocol PropertyLoopable {
-    func allProperties() throws -> [String: Any]
+    func allProperties() throws -> [String : Any]
 }
 
 extension PropertyLoopable {
     
-    func allProperties() throws -> [String: Any] {
+    func allProperties() throws -> [String : Any] {
 
-        var result: [String: Any] = [:]
+        var result: [String : Any] = [:]
         let mirror = Mirror(reflecting: self)
 
         guard let style = mirror.displayStyle, style == .struct || style == .class else {

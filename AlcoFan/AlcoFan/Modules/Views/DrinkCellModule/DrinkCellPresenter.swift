@@ -11,7 +11,8 @@ import UIKit
 protocol DrinkCellPresenterProtocol {
     func loadDrinkName(_ drink: Drink)
     func loadDrinkIngredients(_ drink: Drink)
-    func loadDrinkPhoto()
+    func loadDrinkInstructions(_ drink: Drink)
+    func loadDrinkPhoto(_ drink: Drink)
 }
 
 class DrinkCellPresenter {
@@ -37,7 +38,13 @@ extension DrinkCellPresenter: DrinkCellPresenterProtocol {
         view?.updateDrinkIngredients(drinkIngredients)
     }
     
-    func loadDrinkPhoto() {
-        
+    func loadDrinkInstructions(_ drink: Drink) {
+        let drinkInstructions = interactor.getDrinkInstructions(drink)
+        view?.updateDrinkInstructions(drinkInstructions)
+    }
+    
+    func loadDrinkPhoto(_ drink: Drink) {
+        let drinkImageUrl = interactor.getDrinkImageUrl(drink)
+        view?.updateDrinkImage(drinkImageUrl)
     }
 }

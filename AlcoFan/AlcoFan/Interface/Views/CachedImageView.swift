@@ -13,7 +13,7 @@ let imageCache = NSCache<NSString, UIImage>()
 class CachedImageView: UIImageView {
     
     var imageUrl: String?
-    var placeholderImage = UIImage()
+    var placeholderImage = UIImage(named: "drink-placeholder")
     
     func loadImage(from urlStr: String?) {
         

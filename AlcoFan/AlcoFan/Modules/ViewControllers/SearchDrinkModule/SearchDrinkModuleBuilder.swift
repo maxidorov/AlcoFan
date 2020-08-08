@@ -11,6 +11,7 @@ import UIKit
 class SearchDrinkModuleBuilder {
 
     static func build() -> UIViewController {
+        
         let view = SearchDrinkViewController()
         let interactor = SearchDrinkInteractor()
         interactor.cocktailApiManager = CocktailApiManager(cocktailApiUrlMaker: CocktailApiUrlMaker())

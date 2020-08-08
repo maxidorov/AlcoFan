@@ -11,6 +11,8 @@ import UIKit
 protocol DrinkCellInteractorProtocol {
     func getDrinkName(_ drink: Drink) -> String
     func getDrinkIngredients(_ drink: Drink) -> String
+    func getDrinkInstructions(_ drink: Drink) -> String
+    func getDrinkImageUrl(_ drink: Drink) -> String?
 }
 
 class DrinkCellInteractor { }
@@ -33,6 +35,7 @@ extension DrinkCellInteractor: DrinkCellInteractorProtocol {
         }
         
         var ingredients = ""
+        
         for i in 1...15 {
             if let ingredient = drinkProperties["strIngredient\(i)"] {
                 if let strIngredient = ingredient as? String {
@@ -44,5 +47,13 @@ extension DrinkCellInteractor: DrinkCellInteractorProtocol {
         }
         
         return ingredients
+    }
+    
+    func getDrinkInstructions(_ drink: Drink) -> String {
+        return drink.strInstructions ?? ""
+    }
+    
+    func getDrinkImageUrl(_ drink: Drink) -> String? {
+        return drink.strDrinkThumb
     }
 }
