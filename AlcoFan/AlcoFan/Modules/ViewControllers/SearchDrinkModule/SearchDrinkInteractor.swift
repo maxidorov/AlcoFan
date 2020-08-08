@@ -11,7 +11,6 @@ import UIKit
 protocol SearchDrinkInteractorProtocol {
     func getAllDrinks(completion: @escaping([Drink]) -> ())
     func getDrinksContains(letters: String, completion: @escaping([Drink]) -> ())
-//    func getImage(for drink: Drink, completion: @escaping(UIImage) -> ())
 }
 
 class SearchDrinkInteractor {

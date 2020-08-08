@@ -16,7 +16,10 @@ class CachedImageView: UIImageView {
     var placeholderImage = UIImage()
     
     func loadImage(from urlStr: String?) {
-        guard urlStr != nil else { return }
+        
+        guard urlStr != nil else {
+            return
+        }
         
         image = placeholderImage
         

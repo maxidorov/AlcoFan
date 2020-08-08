@@ -10,7 +10,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="id" id="gTV-IL-0wX" customClass="DrinkCell" customModule="AlcoFan" customModuleProvider="target">
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="DrinkCellID" id="gTV-IL-0wX" customClass="DrinkCell" customModule="AlcoFan" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="345" height="105"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -42,13 +42,33 @@
                                                     <constraint firstItem="5UY-Js-hmv" firstAttribute="leading" secondItem="GGH-EV-WiZ" secondAttribute="leading" constant="8" id="s5q-VQ-jjp"/>
                                                 </constraints>
                                             </view>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYj-IE-Mnt">
-                                                <rect key="frame" x="85" y="32.5" width="236" height="20.5"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bTO-zd-GQb">
+                                                <rect key="frame" x="85" y="0.0" width="236" height="85"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TYj-IE-Mnt">
+                                                        <rect key="frame" x="0.0" y="0.0" width="236" height="28.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OYs-Mk-upd">
+                                                        <rect key="frame" x="0.0" y="28.5" width="236" height="28"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hSb-Yv-gon">
+                                                        <rect key="frame" x="0.0" y="56.5" width="236" height="28.5"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="bTO-zd-GQb" firstAttribute="height" secondItem="TTh-HP-zWE" secondAttribute="height" id="FHs-nk-TBf"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -81,7 +101,9 @@
             <connections>
                 <outlet property="backDrinkImageView" destination="GGH-EV-WiZ" id="XjM-xI-GEH"/>
                 <outlet property="backShadowView" destination="M9g-7H-25g" id="Qgm-eA-Dxp"/>
+                <outlet property="drinkDescriptionLabel" destination="hSb-Yv-gon" id="imk-qJ-xsO"/>
                 <outlet property="drinkImageView" destination="5UY-Js-hmv" id="H2d-pl-MHc"/>
+                <outlet property="drinkIngredientsLabel" destination="OYs-Mk-upd" id="Tce-KG-JdL"/>
                 <outlet property="drinkNameLabel" destination="TYj-IE-Mnt" id="Bwd-ev-RtT"/>
                 <outlet property="stackView" destination="TTh-HP-zWE" id="zbD-qT-Nb1"/>
             </connections>

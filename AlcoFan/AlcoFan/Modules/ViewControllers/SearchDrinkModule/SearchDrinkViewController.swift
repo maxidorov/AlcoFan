@@ -58,7 +58,7 @@ class SearchDrinkViewController: UIViewController {
         collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         collectionView.delegate = self
         collectionView.dataSource = self
-        collectionView.register(UINib(nibName: "DrinkCell", bundle: nil), forCellWithReuseIdentifier: "id")
+        collectionView.register(UINib(nibName: "DrinkCell", bundle: nil), forCellWithReuseIdentifier: DrinkCell.cellID)
         collectionView.backgroundColor = .white
     }
     
@@ -83,7 +83,7 @@ extension SearchDrinkViewController: UICollectionViewDelegate, UICollectionViewD
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "id", for: indexPath) as! DrinkCell
+        let cell = DrinkCellModuleBuilder.build(collectionView: collectionView, cellID: DrinkCell.cellID, indexPath: indexPath)
         cell.configure(with: filteredDrinks[indexPath.row])
         return cell
     }
