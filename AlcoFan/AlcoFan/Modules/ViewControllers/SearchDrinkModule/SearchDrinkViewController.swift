@@ -87,6 +87,10 @@ extension SearchDrinkViewController: UICollectionViewDelegate, UICollectionViewD
         cell.configure(with: filteredDrinks[indexPath.row])
         return cell
     }
+    
+    func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
+        searchBar.resignFirstResponder()
+    }
 }
 
 extension SearchDrinkViewController: UISearchBarDelegate {
