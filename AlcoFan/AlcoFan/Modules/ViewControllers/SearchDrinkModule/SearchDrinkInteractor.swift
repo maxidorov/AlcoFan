@@ -11,7 +11,6 @@ import UIKit
 protocol SearchDrinkInteractorProtocol {
     func getAllDrinks(completion: @escaping([Drink]) -> ())
     func getDrinksContains(letters: String, completion: @escaping([Drink]) -> ())
-//    func getImage(for drink: Drink, completion: @escaping(UIImage) -> ())
 }
 
 class SearchDrinkInteractor {
@@ -50,15 +49,4 @@ extension SearchDrinkInteractor: SearchDrinkInteractorProtocol {
             completion(drinks.filter { $0.containsLetters(letters) })
         }
     }
-    
-//    func getImage(for drink: Drink, completion: @escaping(UIImage) -> ()) {
-//        cocktailApiManager.loadImage(for: drink) { (result) in
-//            switch result {
-//            case .success(let image):
-//                completion(image)
-//            case .failure(let error):
-//                print(error.localizedDescription)
-//            }
-//        }
-//    }
 }

@@ -15,7 +15,11 @@ protocol CocktailApiManagerProtocol {
 
 class CocktailApiManager {
     
-    private let cocktailApiUrlMaker = CocktailApiUrlMaker()
+    let cocktailApiUrlMaker: CocktailApiUrlMakerProtocol!
+    
+    init(cocktailApiUrlMaker: CocktailApiUrlMakerProtocol) {
+        self.cocktailApiUrlMaker = cocktailApiUrlMaker
+    }
     
     public enum RequestTarget {
         case searchCocktailByName

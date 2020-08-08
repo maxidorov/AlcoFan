@@ -1,0 +1,15 @@
+{
+  "images" : [
+    {
+      "filename" : "orange-fresh-drink-logo-design_126460-38.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "preserves-vector-representation" : true
+  }
+}

@@ -8,6 +8,10 @@
 
 import Foundation
 
+protocol CocktailApiUrlMakerProtocol {
+    func getUrl(_ requestTarget: CocktailApiManager.RequestTarget, _ requestStr: String) -> URL
+}
+
 class CocktailApiUrlMaker {
     
     private let scheme = "https"
@@ -18,6 +22,16 @@ class CocktailApiUrlMaker {
         case lookup = "/api/json/v1/1/lookup.php"
         case random = "/api/json/v1/1/random.php"
     }
+    
+    private func getBaseUrlComponents() -> URLComponents {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = scheme
+        urlComponents.host = host
+        return urlComponents
+    }
+}
+
+extension CocktailApiUrlMaker: CocktailApiUrlMakerProtocol {
     
     public func getUrl(_ requestTarget: CocktailApiManager.RequestTarget, _ requestStr: String) -> URL {
         
@@ -57,12 +71,5 @@ class CocktailApiUrlMaker {
         }
         
         return urlComponents.url!
-    }
-    
-    private func getBaseUrlComponents() -> URLComponents {
-        var urlComponents = URLComponents()
-        urlComponents.scheme = scheme
-        urlComponents.host = host
-        return urlComponents
     }
 }

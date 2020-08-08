@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Drink: Decodable {
+struct Drink: Decodable, PropertyLoopable {
     var idDrink: String?
     var strDrink: String?
     var strDrinkAlternate: String?
