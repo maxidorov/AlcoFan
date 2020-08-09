@@ -45,7 +45,7 @@ class SearchDrinkViewController: UIViewController {
         let collectionViewLayout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.minimumLineSpacing = 0
-            layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 120)
+            layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 130)
             return layout
         }()
         
