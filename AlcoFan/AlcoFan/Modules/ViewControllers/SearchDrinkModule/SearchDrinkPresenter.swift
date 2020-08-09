@@ -11,6 +11,7 @@ import UIKit
 protocol SearchDrinkPresenterProtocol {
     func loadAllDrinks()
     func loadDrinksContains(letters: String)
+    func pushCocktailDetailsViewController(_ drink: Drink)
 }
 
 class SearchDrinkPresenter {
@@ -46,5 +47,10 @@ extension SearchDrinkPresenter: SearchDrinkPresenterProtocol {
                 }
             })
         }
+    }
+    
+    func pushCocktailDetailsViewController(_ drink: Drink) {
+        let cocktailDetailsViewController = CocktailDetailsModuleBuilder.build(drink)
+        router.viewController.navigationController?.pushViewController(cocktailDetailsViewController, animated: true)
     }
 }
