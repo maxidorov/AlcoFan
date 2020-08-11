@@ -185,12 +185,12 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		34652BF624D35EF5001E23AF /* Api */ = {
+		34652BF624D35EF5001E23AF /* API */ = {
 			isa = PBXGroup;
 			children = (
 				3400AEB324B66E0B00851ACC /* CocktailApi */,
 			);
-			path = Api;
+			path = API;
 			sourceTree = "<group>";
 		};
 		347B355324DF3A8300EDD019 /* UIImageView */ = {
@@ -235,7 +235,7 @@
 				347D6A2524B60D9800D5F7E2 /* AppDelegate.swift */,
 				347D6A2724B60D9800D5F7E2 /* SceneDelegate.swift */,
 				341F5E5624DEEB0E00B488AB /* Brandbook.swift */,
-				34652BF624D35EF5001E23AF /* Api */,
+				34652BF624D35EF5001E23AF /* API */,
 				341F5E5524DEE15E00B488AB /* Interface */,
 				341F5E5124DEE10900B488AB /* Modules */,
 				34652BF524D35EE3001E23AF /* Helpers */,
