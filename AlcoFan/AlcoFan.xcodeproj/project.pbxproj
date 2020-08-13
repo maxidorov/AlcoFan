@@ -10,6 +10,7 @@
 		3400AEB224B64EF100851ACC /* CocktailApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3468180924B64DFE00227F67 /* CocktailApiManager.swift */; };
 		3400AEB924B68B9D00851ACC /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400AEB824B68B9D00851ACC /* Ingredient.swift */; };
 		3400AEBB24B68BD900851ACC /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3400AEBA24B68BD900851ACC /* Ingredients.swift */; };
+		34063FFF24E5C8F000234D9B /* UIViewController+setupTransparentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34063FFE24E5C8F000234D9B /* UIViewController+setupTransparentViewController.swift */; };
 		341F5E4A24DED59800B488AB /* DrinkCellModuleBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F5E4924DED59800B488AB /* DrinkCellModuleBuilder.swift */; };
 		341F5E4C24DED64000B488AB /* DrinkCellPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F5E4B24DED64000B488AB /* DrinkCellPresenter.swift */; };
 		341F5E4E24DED76600B488AB /* DrinkCellInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341F5E4D24DED76600B488AB /* DrinkCellInteractor.swift */; };
@@ -51,6 +52,7 @@
 /* Begin PBXFileReference section */
 		3400AEB824B68B9D00851ACC /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		3400AEBA24B68BD900851ACC /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
+		34063FFE24E5C8F000234D9B /* UIViewController+setupTransparentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+setupTransparentViewController.swift"; sourceTree = "<group>"; };
 		341F5E4924DED59800B488AB /* DrinkCellModuleBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCellModuleBuilder.swift; sourceTree = "<group>"; };
 		341F5E4B24DED64000B488AB /* DrinkCellPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCellPresenter.swift; sourceTree = "<group>"; };
 		341F5E4D24DED76600B488AB /* DrinkCellInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrinkCellInteractor.swift; sourceTree = "<group>"; };
@@ -119,6 +121,14 @@
 				346817FE24B6311600227F67 /* NerworkingErrorChecker.swift */,
 			);
 			path = "Error handling helpers";
+			sourceTree = "<group>";
+		};
+		34063FFD24E5C8CD00234D9B /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				34063FFE24E5C8F000234D9B /* UIViewController+setupTransparentViewController.swift */,
+			);
+			path = UIViewController;
 			sourceTree = "<group>";
 		};
 		341F5E4824DED57D00B488AB /* DrinkCellModule */ = {
@@ -274,6 +284,7 @@
 			isa = PBXGroup;
 			children = (
 				341F5E4F24DEDCB200B488AB /* PropertyLoopable+allProperties.swift */,
+				34063FFD24E5C8CD00234D9B /* UIViewController */,
 				347B355324DF3A8300EDD019 /* UIImageView */,
 				34E93F2624DDD2AC0015C541 /* UIView */,
 			);
@@ -406,6 +417,7 @@
 				347D6A2824B60D9800D5F7E2 /* SceneDelegate.swift in Sources */,
 				3400AEB224B64EF100851ACC /* CocktailApiManager.swift in Sources */,
 				34C29A4C24D0EFE1006A57FB /* SearchDrinkInteractor.swift in Sources */,
+				34063FFF24E5C8F000234D9B /* UIViewController+setupTransparentViewController.swift in Sources */,
 				3468180424B64CDD00227F67 /* CocktailApiUrlMaker.swift in Sources */,
 				3400AEB924B68B9D00851ACC /* Ingredient.swift in Sources */,
 				341F5E4A24DED59800B488AB /* DrinkCellModuleBuilder.swift in Sources */,

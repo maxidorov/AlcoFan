@@ -16,10 +16,17 @@ class CocktailDetailsViewController: UIViewController {
     
     public var presenter: CocktailDetailsPresenter?
     
+    private var drink: Drink
+    
     private var scrollView: UIScrollView!
+    private var tableView: UITableView!
     private var drinkImageView: CachedImageView!
     
-    private var drink: Drink
+    private var minimumDrinkImageViewOffset: CGFloat = 80
+    private var drinkImageViewOffset: CGFloat = 300
+    private var tableViewInitialContentOffset: CGPoint {
+        return CGPoint(x: 0, y: -drinkImageViewOffset)
+    }
     
     init(_ drink: Drink) {
         self.drink = drink
@@ -33,57 +40,51 @@ class CocktailDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-    }
-    
-    override func viewWillLayoutSubviews() {
-        super.viewWillLayoutSubviews()
-        
         setupUI()
         drinkImageView.loadImage(from: drink.strDrinkThumb)
     }
     
     private func setupUI() {
-        setupBasicUI()
-        setupScrollView()
+        setupTransparentNavigationBar()
+        setupTableView()
         setupDrinkImageView()
-        addCustomView()
     }
     
-    private func setupBasicUI() {
-        view.backgroundColor = .white
-        title = drink.strDrink ?? "??"
-    }
-    
-    private func setupScrollView() {
-        scrollView = UIScrollView()
-        scrollView.delegate = self
-        view.addSubview(scrollView)
-        scrollView.translatesAutoresizingMaskIntoConstraints = false
-        scrollView.fill(view)
-        scrollView.isScrollEnabled = true
+    private func setupTableView() {
+        tableView = UITableView()
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(tableView)
+        tableView.fill(view)
+        tableView.contentInset = UIEdgeInsets(top: drinkImageViewOffset, left: 0, bottom: 0, right: 0)
+        tableView.setContentOffset(tableViewInitialContentOffset, animated: true)
+        tableView.showsVerticalScrollIndicator = false
     }
     
     private func setupDrinkImageView() {
-        drinkImageView = CachedImageView()
-        scrollView.addSubview(drinkImageView)
-        drinkImageView.translatesAutoresizingMaskIntoConstraints = false
-        drinkImageView.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        drinkImageView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
-        drinkImageView.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        drinkImageView.widthAnchor.constraint(equalTo: scrollView.widthAnchor).isActive = true
-        drinkImageView.heightAnchor.constraint(equalTo: drinkImageView.widthAnchor).isActive = true
+        drinkImageView = CachedImageView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: drinkImageViewOffset))
+        drinkImageView.contentMode = .scaleAspectFill
+        drinkImageView.clipsToBounds = true
+        view.addSubview(drinkImageView)
+//        drinkImageView.translatesAutoresizingMaskIntoConstraints = false
+//        drinkImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+//        drinkImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+//        drinkImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+//        drinkImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
+    }
+}
+
+extension CocktailDetailsViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 30
     }
     
-    private func addCustomView() {
-        let v = UIView()
-        v.backgroundColor = .green
-        scrollView.addSubview(v)
-        v.translatesAutoresizingMaskIntoConstraints = false
-        v.topAnchor.constraint(equalTo: drinkImageView.bottomAnchor).isActive = true
-        v.leadingAnchor.constraint(equalTo: scrollView.leadingAnchor).isActive = true
-        v.trailingAnchor.constraint(equalTo: scrollView.trailingAnchor).isActive = true
-        v.heightAnchor.constraint(equalToConstant: 1000).isActive = true
-        v.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor).isActive = true
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        cell.textLabel?.text = "\(indexPath.row + 1)"
+        return cell
     }
 }
 
@@ -91,9 +92,10 @@ extension CocktailDetailsViewController: UIScrollViewDelegate {
     
     // FIXME: Zoom image effect on drag down
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        var scale = 1.0 + CGFloat(fabsf(Float(scrollView.contentOffset.y))) / CGFloat(scrollView.frame.size.height)
-        scale = max(0.0, scale)
-        drinkImageView.transform = CGAffineTransform(scaleX: scale, y: scale)
+        guard drinkImageView != nil else { return }
+        let currentTableViewOffsetY = -tableView.contentOffset.y
+        let drinkImageViewHeight = max(minimumDrinkImageViewOffset, currentTableViewOffsetY)
+        drinkImageView.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: drinkImageViewHeight)
     }
 }
 

@@ -26,7 +26,6 @@ extension DrinkCellInteractor: DrinkCellInteractorProtocol {
     func getDrinkIngredients(_ drink: Drink) -> String {
         
         var drinkProperties = [String : Any]()
-        
         do {
             drinkProperties = try drink.allProperties()
         } catch  {
@@ -35,14 +34,10 @@ extension DrinkCellInteractor: DrinkCellInteractorProtocol {
         }
         
         var ingredients = ""
-        
         for i in 1...15 {
-            if let ingredient = drinkProperties["strIngredient\(i)"] {
-                if let strIngredient = ingredient as? String {
-                    ingredients += (i != 1 ? ", " : "") + strIngredient
-                }
-            } else {
-                break
+            guard let ingredient = drinkProperties["strIngredient\(i)"] else { break }
+            if let strIngredient = ingredient as? String {
+                ingredients += (i != 1 ? ", " : "") + strIngredient
             }
         }
         

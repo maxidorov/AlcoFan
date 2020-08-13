@@ -52,5 +52,6 @@ extension SearchDrinkPresenter: SearchDrinkPresenterProtocol {
     func pushCocktailDetailsViewController(_ drink: Drink) {
         let cocktailDetailsViewController = CocktailDetailsModuleBuilder.build(drink)
         router.viewController.navigationController?.pushViewController(cocktailDetailsViewController, animated: true)
+//        router.viewController.present(cocktailDetailsViewController, animated: true, completion: nil)
     }
 }
