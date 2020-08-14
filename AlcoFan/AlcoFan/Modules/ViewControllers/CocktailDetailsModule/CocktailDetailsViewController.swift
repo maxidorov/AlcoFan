@@ -90,7 +90,6 @@ extension CocktailDetailsViewController: UITableViewDelegate, UITableViewDataSou
 
 extension CocktailDetailsViewController: UIScrollViewDelegate {
     
-    // FIXME: Zoom image effect on drag down
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard drinkImageView != nil else { return }
         let currentTableViewOffsetY = -tableView.contentOffset.y
