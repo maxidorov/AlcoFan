@@ -17,10 +17,10 @@ class CocktailDetailsInteractor { }
 
 extension CocktailDetailsInteractor: CocktailDetailsInteractorProtocol {
     func getDrinkIngredientsNames(_ drink: Drink) -> [String] {
-        drink.getNumeratedProperties("strIngredient")
+        drink.getNumeratedProperties(.ingredient)
     }
     
     func getDrinkIngredientsMeasures(_ drink: Drink) -> [String] {
-        drink.getNumeratedProperties("strMeasure")
+        drink.getNumeratedProperties(.measure)
     }
 }
