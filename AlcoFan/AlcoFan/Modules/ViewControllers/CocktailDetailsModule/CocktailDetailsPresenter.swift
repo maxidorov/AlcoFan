@@ -9,7 +9,6 @@
 import UIKit
 
 protocol CocktailDetailsPresenterProtocol {
-    
 }
 
 class CocktailDetailsPresenter {
@@ -26,5 +25,4 @@ class CocktailDetailsPresenter {
 }
 
 extension CocktailDetailsPresenter: CocktailDetailsPresenterProtocol {
-    
 }

@@ -63,3 +63,51 @@ extension Drink {
         return strDrink!.lowercased().hasPrefix(letters.lowercased())
     }
 }
+
+extension Drink {
+    
+    func getNumeratedProperty(_ property: String, index: Int) -> String {
+        var drinkProperties = [String : Any]()
+        
+        do {
+            drinkProperties = try self.allProperties()
+        } catch  {
+            print(error)
+            return "error in \(#function)"
+        }
+        
+        if let value = drinkProperties["\(property)\(index)"] as? String {
+            return value
+        }
+        return "taste"
+    }
+    
+    func getNumeratedProperties(_ property: String) -> [String] {
+        var propertyValues = [String]()
+        
+        var drinkProperties = [String : Any]()
+        do {
+            drinkProperties = try self.allProperties()
+        } catch  {
+            print(error)
+            return ["error in \(#function)"]
+        }
+        
+        for i in 1...15 {
+            guard let propertyValue = drinkProperties["\(property)\(i)"] else { break }
+            if let strpropertyValue = propertyValue as? String {
+                propertyValues.append(strpropertyValue)
+            }
+        }
+        
+        return propertyValues
+    }
+    
+    var ingredientsNamesCount: Int {
+        self.getNumeratedProperties("strIngredient").count
+    }
+    
+    var ingredientsMeasuresCount: Int {
+        self.getNumeratedProperties("strMeasure").count
+    }
+}

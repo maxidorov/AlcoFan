@@ -9,13 +9,18 @@
 import UIKit
 
 protocol CocktailDetailsInteractorProtocol {
-    
+    func getDrinkIngredientsNames(_ drink: Drink) -> [String]
+    func getDrinkIngredientsMeasures(_ drink: Drink) -> [String]
 }
 
-class CocktailDetailsInteractor {
-    
-}
+class CocktailDetailsInteractor { }
 
 extension CocktailDetailsInteractor: CocktailDetailsInteractorProtocol {
+    func getDrinkIngredientsNames(_ drink: Drink) -> [String] {
+        drink.getNumeratedProperties("strIngredient")
+    }
     
+    func getDrinkIngredientsMeasures(_ drink: Drink) -> [String] {
+        drink.getNumeratedProperties("strMeasure")
+    }
 }

@@ -22,10 +22,15 @@ class CocktailDetailsViewController: UIViewController {
     private var tableView: UITableView!
     private var drinkImageView: CachedImageView!
     
-    private var minimumDrinkImageViewOffset: CGFloat = 80
+    private var minimumDrinkImageViewOffset: CGFloat = 120
     private var drinkImageViewOffset: CGFloat = 300
     private var tableViewInitialContentOffset: CGPoint {
         return CGPoint(x: 0, y: -drinkImageViewOffset)
+    }
+    
+    private var cellSeparatorInsets: UIEdgeInsets {
+        let sideInset = view.frame.width * 0.3 / 2 - 10
+        return UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
     }
     
     init(_ drink: Drink) {
@@ -44,8 +49,17 @@ class CocktailDetailsViewController: UIViewController {
         drinkImageView.loadImage(from: drink.strDrinkThumb)
     }
     
-    private func setupUI() {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         setupTransparentNavigationBar()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        setupNontransparentNavigationBar()
+    }
+    
+    private func setupUI() {
         setupTableView()
         setupDrinkImageView()
     }
@@ -54,7 +68,7 @@ class CocktailDetailsViewController: UIViewController {
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableView.register(UINib(nibName: "DrinkIngredientCell", bundle: nil), forCellReuseIdentifier: DrinkIngredientCell.cellID)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.fill(view)
@@ -68,28 +82,32 @@ class CocktailDetailsViewController: UIViewController {
         drinkImageView.contentMode = .scaleAspectFill
         drinkImageView.clipsToBounds = true
         view.addSubview(drinkImageView)
-//        drinkImageView.translatesAutoresizingMaskIntoConstraints = false
-//        drinkImageView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
-//        drinkImageView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-//        drinkImageView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-//        drinkImageView.heightAnchor.constraint(equalToConstant: 300).isActive = true
     }
 }
 
 extension CocktailDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        return drink.ingredientsNamesCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = "\(indexPath.row + 1)"
+        let cell = tableView.dequeueReusableCell(withIdentifier: DrinkIngredientCell.cellID, for: indexPath) as! DrinkIngredientCell
+        cell.separatorInset = cellSeparatorInsets
+        let ingredientNumber = indexPath.row + 1
+        let viewModel = DrinkIngredientCell.DrinkIngredientCellViewModel(
+            ingredientName: drink.getNumeratedProperty("strIngredient", index: ingredientNumber),
+            ingredientMeasure: drink.getNumeratedProperty("strMeasure", index: ingredientNumber)
+        )
+        cell.configure(viewModel)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        40.0
     }
 }
 
 extension CocktailDetailsViewController: UIScrollViewDelegate {
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         guard drinkImageView != nil else { return }
         let currentTableViewOffsetY = -tableView.contentOffset.y
