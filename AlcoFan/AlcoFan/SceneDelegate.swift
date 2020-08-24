@@ -20,6 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let mainTabBarController = UITabBarController()
         let navigationSearchViewController = UINavigationController(rootViewController: searchDrinkViewController)
+        navigationSearchViewController.navigationBar.tintColor = Brandbook.navigationBarTintColor
         mainTabBarController.addChild(navigationSearchViewController)
         
         window = UIWindow(windowScene: mainScene)

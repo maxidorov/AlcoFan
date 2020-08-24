@@ -38,19 +38,14 @@ class DrinkCell: UICollectionViewCell {
     @IBOutlet weak private var drinkIngredientsLabel: UILabel! {
         didSet {
             drinkIngredientsLabel.font = Brandbook.font(size: 12, weight: .medium)
-            drinkIngredientsLabel.textColor = .lightGray
         }
     }
     
     @IBOutlet weak private var drinkInstructionsLabel: UILabel! {
         didSet {
             drinkInstructionsLabel.font = Brandbook.font(size: 12, weight: .medium)
+            drinkInstructionsLabel.textColor = .lightGray
         }
-    }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
     }
     
     public func configure(with drink: Drink) {

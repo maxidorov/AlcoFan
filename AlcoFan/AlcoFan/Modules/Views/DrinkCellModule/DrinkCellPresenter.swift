@@ -34,7 +34,7 @@ extension DrinkCellPresenter: DrinkCellPresenterProtocol {
     }
     
     func loadDrinkIngredients(_ drink: Drink) {
-        let drinkIngredients = interactor.getDrinkIngredients(drink)
+        let drinkIngredients = interactor.getDrinkIngredientsInString(drink)
         view?.updateDrinkIngredients(drinkIngredients)
     }
     

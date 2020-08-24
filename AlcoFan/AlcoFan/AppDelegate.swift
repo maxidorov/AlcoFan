@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let mainTabBarController = UITabBarController()
         let navigationSearchViewController = UINavigationController(rootViewController: searchDrinkViewController)
+         navigationSearchViewController.navigationBar.tintColor = Brandbook.navigationBarTintColor
         mainTabBarController.addChild(navigationSearchViewController)
         
         window = UIWindow(frame: UIScreen.main.bounds)

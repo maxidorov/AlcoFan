@@ -45,7 +45,7 @@ class SearchDrinkViewController: UIViewController {
         let collectionViewLayout: UICollectionViewFlowLayout = {
             let layout = UICollectionViewFlowLayout()
             layout.minimumLineSpacing = 0
-            layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 120)
+            layout.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 130)
             return layout
         }()
         
@@ -66,7 +66,7 @@ class SearchDrinkViewController: UIViewController {
         searchBar = UISearchBar()
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
-        searchBar.placeholder = "All cocktails"
+        searchBar.placeholder = "Search cocktail..."
         searchBar.keyboardType = .default
     }
 }
@@ -86,6 +86,11 @@ extension SearchDrinkViewController: UICollectionViewDelegate, UICollectionViewD
         let cell = DrinkCellModuleBuilder.build(collectionView: collectionView, cellID: DrinkCell.cellID, indexPath: indexPath)
         cell.configure(with: filteredDrinks[indexPath.row])
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let drink = filteredDrinks[indexPath.row]
+        presenter?.pushCocktailDetailsViewController(drink)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {

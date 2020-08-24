@@ -23,3 +23,7 @@ internal final class Brandbook {
     }
 }
 
+extension Brandbook {
+    static let navigationBarTintColor = UIColor.white
+}
+
