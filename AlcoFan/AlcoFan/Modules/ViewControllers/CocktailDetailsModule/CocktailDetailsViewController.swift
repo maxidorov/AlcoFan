@@ -92,7 +92,13 @@ extension CocktailDetailsViewController: UITableViewDelegate, UITableViewDataSou
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: DrinkIngredientCell.cellID, for: indexPath) as! DrinkIngredientCell
-        cell.separatorInset = cellSeparatorInsets
+        
+        if indexPath.row != drink.ingredientsNamesCount - 1 {
+            cell.separatorInset = cellSeparatorInsets
+        } else {
+            cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.width, bottom: 0, right: 0)
+        }
+        
         let ingredientNumber = indexPath.row + 1
         let viewModel = DrinkIngredientCell.DrinkIngredientCellViewModel(
             ingredientName: drink.getNumeratedProperty("strIngredient", index: ingredientNumber),

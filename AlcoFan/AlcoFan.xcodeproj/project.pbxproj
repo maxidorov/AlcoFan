@@ -137,17 +137,10 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
-		3412E06824F438CA00853064 /* DrinkIngregientCell */ = {
-			isa = PBXGroup;
-			children = (
-				3412E06924F438F100853064 /* DrinkIngredientCell.swift */,
-			);
-			path = DrinkIngregientCell;
-			sourceTree = "<group>";
-		};
 		341F5E4824DED57D00B488AB /* DrinkCellModule */ = {
 			isa = PBXGroup;
 			children = (
+				34E93F2B24DDDCBF0015C541 /* DrinkCell.xib */,
 				34E93F2A24DDDCBF0015C541 /* DrinkCell.swift */,
 				341F5E4B24DED64000B488AB /* DrinkCellPresenter.swift */,
 				341F5E4D24DED76600B488AB /* DrinkCellInteractor.swift */,
@@ -177,7 +170,6 @@
 		341F5E5324DEE12A00B488AB /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3412E06824F438CA00853064 /* DrinkIngregientCell */,
 				341F5E4824DED57D00B488AB /* DrinkCellModule */,
 			);
 			path = Views;
@@ -196,8 +188,7 @@
 			children = (
 				34652BF224D35627001E23AF /* CachedImageView.swift */,
 				34E93F2F24DDDF3B0015C541 /* CustomCachedImageView.swift */,
-				34E93F2B24DDDCBF0015C541 /* DrinkCell.xib */,
-				3412E06A24F438F100853064 /* DrinkIngredientCell.xib */,
+				34FC97FB24F9D76A00E0F7EC /* DrinkIngredientCell */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -328,6 +319,15 @@
 				34E93F2024DDCCD10015C541 /* UIView+shadow */,
 			);
 			path = UIView;
+			sourceTree = "<group>";
+		};
+		34FC97FB24F9D76A00E0F7EC /* DrinkIngredientCell */ = {
+			isa = PBXGroup;
+			children = (
+				3412E06A24F438F100853064 /* DrinkIngredientCell.xib */,
+				3412E06924F438F100853064 /* DrinkIngredientCell.swift */,
+			);
+			path = DrinkIngredientCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
