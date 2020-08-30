@@ -22,15 +22,23 @@ class CocktailDetailsViewController: UIViewController {
     private var tableView: UITableView!
     private var drinkImageView: CachedImageView!
     
+    private var tableViewRowsCount: Int {
+        drink.ingredientsNamesCount + 2
+    }
+    
     private var minimumDrinkImageViewOffset: CGFloat = 120
     private var drinkImageViewOffset: CGFloat = 300
     private var tableViewInitialContentOffset: CGPoint {
         return CGPoint(x: 0, y: -drinkImageViewOffset)
     }
     
-    private var cellSeparatorInsets: UIEdgeInsets {
-        let sideInset = view.frame.width * 0.3 / 2 - 10
+    private var cellWithIngredientInsets: UIEdgeInsets {
+        let sideInset = view.frame.width * 0.2 / 2 - 10
         return UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
+    }
+    
+    private var cellEmptySeparator: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: tableView.frame.width, bottom: 0, right: 0)
     }
     
     init(_ drink: Drink) {
@@ -68,7 +76,9 @@ class CocktailDetailsViewController: UIViewController {
         tableView = UITableView()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.register(UINib(nibName: "DrinkRecipeLabelCell", bundle: nil), forCellReuseIdentifier: DrinkRecipeLabelCell.cellID)
         tableView.register(UINib(nibName: "DrinkIngredientCell", bundle: nil), forCellReuseIdentifier: DrinkIngredientCell.cellID)
+        tableView.register(UINib(nibName: "DrinkRecipeDescriptionCell", bundle: nil), forCellReuseIdentifier: DrinkRecipeDescriptionCell.cellID)
         tableView.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(tableView)
         tableView.fill(view)
@@ -87,29 +97,48 @@ class CocktailDetailsViewController: UIViewController {
 
 extension CocktailDetailsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return drink.ingredientsNamesCount
+        tableViewRowsCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: DrinkIngredientCell.cellID, for: indexPath) as! DrinkIngredientCell
-        
-        if indexPath.row != drink.ingredientsNamesCount - 1 {
-            cell.separatorInset = cellSeparatorInsets
-        } else {
-            cell.separatorInset = UIEdgeInsets(top: 0, left: cell.bounds.width, bottom: 0, right: 0)
+        let row = indexPath.row
+        switch row {
+        case 0:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DrinkRecipeLabelCell.cellID, for: indexPath) as! DrinkRecipeLabelCell
+            cell.separatorInset = cellEmptySeparator
+            return cell
+        case 1...tableViewRowsCount - 2:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DrinkIngredientCell.cellID, for: indexPath) as! DrinkIngredientCell
+            let viewModel = DrinkIngredientCell.DrinkIngredientCellViewModel(
+                ingredientName: drink.getNumeratedProperty("strIngredient", index: row),
+                ingredientMeasure: drink.getNumeratedProperty("strMeasure", index: row)
+            )
+            cell.configure(viewModel)
+            cell.separatorInset = cellWithIngredientInsets
+            return cell
+        case tableViewRowsCount - 1:
+            let cell = tableView.dequeueReusableCell(withIdentifier: DrinkRecipeDescriptionCell.cellID, for: indexPath) as! DrinkRecipeDescriptionCell
+            cell.setDrinkRecipeDescription(text: drink.strInstructions)
+            cell.separatorInset = cellEmptySeparator
+            return cell
+        default:
+            break
         }
         
-        let ingredientNumber = indexPath.row + 1
-        let viewModel = DrinkIngredientCell.DrinkIngredientCellViewModel(
-            ingredientName: drink.getNumeratedProperty("strIngredient", index: ingredientNumber),
-            ingredientMeasure: drink.getNumeratedProperty("strMeasure", index: ingredientNumber)
-        )
-        cell.configure(viewModel)
-        return cell
+        return UITableViewCell()
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        40.0
+        switch indexPath.row {
+        case 0:
+            return 60
+        case 1...drink.ingredientsNamesCount:
+            return 40
+        case drink.ingredientsNamesCount + 1:
+            return 100
+        default:
+            return 0
+        }
     }
 }
 

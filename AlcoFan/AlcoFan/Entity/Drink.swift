@@ -66,6 +66,14 @@ extension Drink {
 
 extension Drink {
     
+    var ingredientsNamesCount: Int {
+        self.getNumeratedProperties(.ingredient).count
+    }
+    
+    var ingredientsMeasuresCount: Int {
+        self.getNumeratedProperties(.measure).count
+    }
+    
     func getNumeratedProperty(_ property: String, index: Int) -> String {
         var drinkProperties = [String : Any]()
         
@@ -101,13 +109,5 @@ extension Drink {
         }
         
         return propertyValues
-    }
-    
-    var ingredientsNamesCount: Int {
-        self.getNumeratedProperties(.ingredient).count
-    }
-    
-    var ingredientsMeasuresCount: Int {
-        self.getNumeratedProperties(.measure).count
     }
 }

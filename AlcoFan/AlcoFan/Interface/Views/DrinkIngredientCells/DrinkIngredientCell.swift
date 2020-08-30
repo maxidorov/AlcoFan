@@ -10,17 +10,22 @@ import UIKit
 
 class DrinkIngredientCell: UITableViewCell {
     
-    static public let cellID = "DrinkIngredientCell"
+    static public let cellID = "DrinkIngredientCellID"
+    
+    private var cellFont = Brandbook.font(size: 14, weight: .bold)
+    private var cellTextColor = Brandbook.drinkIngredientsSectionTextColor
 
     @IBOutlet weak private var ingredientNameLabel: UILabel! {
         didSet {
-            ingredientNameLabel.font = Brandbook.font(size: 17, weight: .medium)
+            ingredientNameLabel.font = cellFont
+            ingredientNameLabel.textColor = cellTextColor
         }
     }
     
     @IBOutlet weak private var ingredientMeasureLabel: UILabel! {
         didSet {
-            ingredientMeasureLabel.font = Brandbook.font(size: 17, weight: .medium)
+            ingredientMeasureLabel.font = cellFont
+            ingredientMeasureLabel.textColor = cellTextColor
         }
     }
     

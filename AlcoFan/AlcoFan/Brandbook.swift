@@ -24,6 +24,12 @@ internal final class Brandbook {
 }
 
 extension Brandbook {
+    internal static var drinkIngredientsSectionTextColor: UIColor {
+        return UIColor(red: 118 / 255.0, green: 118 / 255.0, blue: 118 / 255.0, alpha: 1)
+    }
+}
+
+extension Brandbook {
     static let navigationBarTintColor = UIColor.white
 }
 
