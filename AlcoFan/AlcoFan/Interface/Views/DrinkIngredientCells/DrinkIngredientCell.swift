@@ -10,17 +10,22 @@ import UIKit
 
 class DrinkIngredientCell: UITableViewCell {
     
-    static public let cellID = "DrinkIngredientCell"
+    static public let cellID = "DrinkIngredientCellID"
+    
+    private var cellFont = Brandbook.font(size: 14, weight: .bold)
+    private var cellTextColor = Brandbook.drinkIngredientsSectionTextColor
 
     @IBOutlet weak private var ingredientNameLabel: UILabel! {
         didSet {
-            ingredientNameLabel.font = Brandbook.font(size: 17, weight: .medium)
+            ingredientNameLabel.font = cellFont
+            ingredientNameLabel.textColor = cellTextColor
         }
     }
     
     @IBOutlet weak private var ingredientMeasureLabel: UILabel! {
         didSet {
-            ingredientMeasureLabel.font = Brandbook.font(size: 17, weight: .medium)
+            ingredientMeasureLabel.font = cellFont
+            ingredientMeasureLabel.textColor = cellTextColor
         }
     }
     
@@ -33,16 +38,4 @@ class DrinkIngredientCell: UITableViewCell {
         ingredientNameLabel.text = drinkIngredientCellViewModel.ingredientName
         ingredientMeasureLabel.text = drinkIngredientCellViewModel.ingredientMeasure
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }
