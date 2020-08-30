@@ -33,7 +33,7 @@ class CocktailDetailsViewController: UIViewController {
     }
     
     private var cellWithIngredientInsets: UIEdgeInsets {
-        let sideInset = view.frame.width * 0.2 / 2 - 10
+        let sideInset = view.frame.width * 0.2 / 2
         return UIEdgeInsets(top: 0, left: sideInset, bottom: 0, right: sideInset)
     }
     
@@ -85,6 +85,11 @@ class CocktailDetailsViewController: UIViewController {
         tableView.contentInset = UIEdgeInsets(top: drinkImageViewOffset, left: 0, bottom: 0, right: 0)
         tableView.setContentOffset(tableViewInitialContentOffset, animated: true)
         tableView.showsVerticalScrollIndicator = false
+        tableView.tableFooterView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 1))
+        tableView.separatorColor = Brandbook.drinkIngredientsTableViewSeparatorColor
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 40
+        tableView.allowsSelection = false
     }
     
     private func setupDrinkImageView() {
@@ -114,7 +119,7 @@ extension CocktailDetailsViewController: UITableViewDelegate, UITableViewDataSou
                 ingredientMeasure: drink.getNumeratedProperty("strMeasure", index: row)
             )
             cell.configure(viewModel)
-            cell.separatorInset = cellWithIngredientInsets
+            cell.separatorInset = (row == tableViewRowsCount - 2) ? cellEmptySeparator : cellWithIngredientInsets
             return cell
         case tableViewRowsCount - 1:
             let cell = tableView.dequeueReusableCell(withIdentifier: DrinkRecipeDescriptionCell.cellID, for: indexPath) as! DrinkRecipeDescriptionCell
@@ -135,7 +140,7 @@ extension CocktailDetailsViewController: UITableViewDelegate, UITableViewDataSou
         case 1...drink.ingredientsNamesCount:
             return 40
         case drink.ingredientsNamesCount + 1:
-            return 100
+            return 300
         default:
             return 0
         }

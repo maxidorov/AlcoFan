@@ -12,26 +12,17 @@ class DrinkRecipeDescriptionCell: UITableViewCell {
     
     static public let cellID = "DrinkRecipeDescriptionCellID"
 
-    @IBOutlet private weak var drinkRecipeDescriptionLabel: UILabel! {
+    @IBOutlet weak var drinkRecipeDescriptionTextView: UITextView! {
         didSet {
-            drinkRecipeDescriptionLabel.font = Brandbook.font(size: 12, weight: .medium)
-            drinkRecipeDescriptionLabel.textColor = Brandbook.drinkIngredientsSectionTextColor
+            drinkRecipeDescriptionTextView.font = Brandbook.font(size: 12, weight: .medium)
+            drinkRecipeDescriptionTextView.textColor = Brandbook.drinkIngredientsSectionTextColor
+            drinkRecipeDescriptionTextView.isEditable = false
+            drinkRecipeDescriptionTextView.isSelectable = false
+            drinkRecipeDescriptionTextView.isUserInteractionEnabled = false
         }
     }
     
     public func setDrinkRecipeDescription(text: String?) {
-        drinkRecipeDescriptionLabel.text = text ?? ""
+        drinkRecipeDescriptionTextView.text = text ?? ""
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-    
 }

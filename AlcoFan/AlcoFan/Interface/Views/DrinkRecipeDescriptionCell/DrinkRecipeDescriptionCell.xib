@@ -17,23 +17,24 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mih-WF-5kS">
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="5Z7-2G-FdR">
                         <rect key="frame" x="16" y="8" width="288" height="53"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                    </textView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="Mih-WF-5kS" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="bPg-GY-wPp"/>
-                    <constraint firstItem="Mih-WF-5kS" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="ek1-Eg-k3f"/>
-                    <constraint firstAttribute="trailing" secondItem="Mih-WF-5kS" secondAttribute="trailing" constant="16" id="hKm-0f-MfH"/>
-                    <constraint firstAttribute="bottom" secondItem="Mih-WF-5kS" secondAttribute="bottom" constant="8" id="rNO-jT-F09"/>
+                    <constraint firstItem="5Z7-2G-FdR" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="IAS-vS-czz"/>
+                    <constraint firstAttribute="bottom" secondItem="5Z7-2G-FdR" secondAttribute="bottom" constant="8" id="LUF-Lh-RDr"/>
+                    <constraint firstItem="5Z7-2G-FdR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="8" id="PHy-U5-sSy"/>
+                    <constraint firstAttribute="trailing" secondItem="5Z7-2G-FdR" secondAttribute="trailing" constant="16" id="ZmX-zc-toi"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="drinkRecipeDescriptionLabel" destination="Mih-WF-5kS" id="BtD-Bb-VXe"/>
+                <outlet property="drinkRecipeDescriptionTextView" destination="5Z7-2G-FdR" id="idU-cC-zi2"/>
             </connections>
             <point key="canvasLocation" x="140.57971014492756" y="161.71875"/>
         </tableViewCell>
