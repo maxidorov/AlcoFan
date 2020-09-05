@@ -66,7 +66,7 @@ class SearchDrinkViewController: UIViewController {
         searchBar = UISearchBar()
         self.navigationItem.titleView = searchBar
         searchBar.delegate = self
-        searchBar.placeholder = "Search cocktail..."
+        searchBar.placeholder = "Search cocktail"
         searchBar.keyboardType = .default
     }
 }

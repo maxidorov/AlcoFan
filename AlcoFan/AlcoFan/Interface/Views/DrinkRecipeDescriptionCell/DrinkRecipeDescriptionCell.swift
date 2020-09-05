@@ -12,7 +12,7 @@ class DrinkRecipeDescriptionCell: UITableViewCell {
     
     static public let cellID = "DrinkRecipeDescriptionCellID"
 
-    @IBOutlet weak var drinkRecipeDescriptionTextView: UITextView! {
+    @IBOutlet weak private var drinkRecipeDescriptionTextView: UITextView! {
         didSet {
             drinkRecipeDescriptionTextView.font = Brandbook.font(size: 12, weight: .medium)
             drinkRecipeDescriptionTextView.textColor = Brandbook.drinkIngredientsSectionTextColor
